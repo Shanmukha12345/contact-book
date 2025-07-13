@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Book</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <h1>Contact Book</h1>
+  </header>
+
+  <main>
+    <!-- Contact Form -->
+    <section class="form-section">
+      <form id="contactForm">
+        <input type="number" id="id" placeholder="ID" required />
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" placeholder="First Name" required />
+        <input type="text" id="lastName" placeholder="Last Name" required />
+        <input type="text" id="phone" placeholder="Phone" required />
+        <input type="email" id="email" placeholder="Email" required />
+        <input type="text" id="category" placeholder="Category" />
+        <input type="text" id="country" placeholder="Country" />
+        <input type="text" id="address" placeholder="Address" />
+        <input type="text" id="city" placeholder="City" />
+        <input type="date" id="birthday" placeholder="Birthday" />
+        <input type="text" id="labels" placeholder="Labels (comma-separated)" />
+        <input type="text" id="notes" placeholder="Notes" />
+        <input type="url" id="imageUrl" placeholder="Profile Image URL" />
+        <button type="submit">Add Contact</button>
+        <button onclick="sortContactsByName()">Sort A-Z / Z-A</button>
+        <button onclick="getRecentContacts()">Show Recent</button>
+        <button onclick="filterByCountry('India')">Filter India</button>
+        <button onclick="filterByCategory('Work')">Filter Work</button>
+        <button onclick="showOriginalContacts()">Show Recent Contacts</button>
+      </form>
+    </section>
+
+    <!-- Search Bar -->
+    <section class="search-section">
+      <input type="text" id="searchQuery" placeholder="Search name, phone, email, category, city, notes..." />
+      <button onclick="searchContact()">Search</button>
+    </section>
+
+    <!-- Toolbar -->
+    <section class="toolbar-section">
+      <button onclick="exportCSV()">Export CSV</button>
+      <input type="file" id="csvInput" accept=".csv" />
+      <button onclick="filterFavorites()">Show Favorites</button>
+      <button onclick="showAllContacts()">Show All</button>
+    </section>
+
+    <!-- Contact Table -->
+    <section class="contact-table">
+      <table>
+        <thead>
+          <tr>
+            <th>★</th>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Category</th>
+            <th>Country</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>Birthday</th>
+            <th>Labels</th>
+            <th>Notes</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="contactList">
+          <!-- Dynamic content -->
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
