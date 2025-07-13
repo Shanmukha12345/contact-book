@@ -63,3 +63,7 @@ A full-stack Contact Book application built using **Flask (Python)** for the bac
 git clone https://github.com/Shanmukha12345/contact-book
 cd contact-book/backend
 python app.py
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
